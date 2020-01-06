@@ -3184,7 +3184,7 @@ ember-cli-babel-plugin-helpers@^1.0.0, ember-cli-babel-plugin-helpers@^1.1.0:
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.0.tgz#de3baedd093163b6c2461f95964888c1676325ac"
   integrity sha512-Zr4my8Xn+CzO0gIuFNXji0eTRml5AxZUTDQz/wsNJ5AJAtyFWCY4QtKdoELNNbiCVGt1lq5yLiwTm4scGKu6xA==
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -3339,6 +3339,13 @@ ember-cli-string-utils@^1.0.0, ember-cli-string-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-string-utils/-/ember-cli-string-utils-1.1.0.tgz#39b677fc2805f55173735376fcef278eaa4452a1"
   integrity sha1-ObZ3/CgF9VFzc1N2/O8njqpEUqE=
+
+ember-cli-tachyons-shim@^4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-tachyons-shim/-/ember-cli-tachyons-shim-4.9.1.tgz#ee9262501d6f57d45b5279d5693e9a4238d60696"
+  integrity sha512-2UXwl8vTBKoVDCXAFKXzNrvXCs2SXTTeGnbU2beiEtPFmw+meTjE3wAfINVQ9lk2T5aA+pLZPwMNDF5KV3v7MQ==
+  dependencies:
+    ember-cli-babel "^6.3.0"
 
 ember-cli-template-lint@^1.0.0-beta.1:
   version "1.0.0-beta.3"
@@ -7387,6 +7394,11 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+tachyons@4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.9.1.tgz#f88d7059d6e53c833bf9351a26f18314c8fdc76a"
+  integrity sha512-trJFXhzDZeHRcd9Bqn6ub3e0VqGWKMsGdP7RJoT+8Ihoak41o1qCwqcFx8hsFlfFWa6a4jsb464TNXnTt+MPnw==
 
 tap-parser@^7.0.0:
   version "7.0.0"
