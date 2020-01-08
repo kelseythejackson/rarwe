@@ -23,5 +23,9 @@ export default Controller.extend({
     this.model.songs.pushObject(newSong)
     this.set('newSongTitle', '')
 
+  }),
+
+  updateRating: action(function(song, rating) {
+    song.set('rating', song.rating === rating ? 0 : rating)
   })
 });
