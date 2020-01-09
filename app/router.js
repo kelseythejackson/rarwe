@@ -21,8 +21,8 @@ const Router = EmberRouter.extend({
         'bands.band.songs': () => {
           let bandRouteInfo = transition.to.find(info => 
             info.name.includes('bands.band'));
-          let bandSlug = bandRouteInfo.params.slug;
-          let bandName = bandSlug.split('-').map(s => capitalize(s)).join('');
+          let bandId = bandRouteInfo.params.id;
+          let bandName = bandId.split('-').map(s => capitalize(s)).join('');
           return `${bandName} songs`;
         }
       }
@@ -40,7 +40,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('bands', function() {
     this.route('band', {
-      path: ':slug'
+      path: ':id'
     }, function() {
       this.route('songs');
       this.route('details');
