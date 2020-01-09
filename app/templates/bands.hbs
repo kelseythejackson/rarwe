@@ -3,7 +3,7 @@
     {{#each this.model as |band|}}
       <li class="rr-list-item">
         <LinkTo
-          @route="bands.band.songs"
+          @route="bands.band"
           @model={{band.slug}}
           class="rr-band-link"
         >
