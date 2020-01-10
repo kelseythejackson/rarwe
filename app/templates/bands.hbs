@@ -1,11 +1,12 @@
 <div class="rr-sidebar">
   <ul class="rr-list">
     {{#each this.model as |band|}}
-      <li class="rr-list-item">
+      <li class="rr-list-item" data-test-rr="band-list-item">
         <LinkTo
           @route="bands.band"
           @model={{band.id}}
           class="rr-band-link"
+          data-test-rr="band-link"
         >
           {{band.name}}
           <span class="rr-pointer">
@@ -29,6 +30,7 @@
           type="submit"
           class="rr-action-button"
           disabled={{this.isAddButtonDisabled}}
+          data-test-rr="new-band-button"
           {{on "click" this.saveBand}}
         >
           Add
@@ -39,7 +41,7 @@
       </form>
     {{else}}
       <div class="rr-new-label">
-        <label {{on "click" this.addBand}}>
+        <label data-test-rr="new-band-label" {{on "click" this.addBand}}>
           {{fa-icon "plus"}}
           <span class="ml1">
             Add new band
