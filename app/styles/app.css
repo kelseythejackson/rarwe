@@ -1,6 +1,16 @@
 :root {
   --bright-yellow: #ffda00;
   --navitem-link-color: var(--bright-yellow);
+  --blue: #357edd;
+  --dark-blue: #00449e;
+  --light-blue: #96ccff;
+  --mid-grey: #555;
+  --near-white: #f4f4f4;
+  --input-color: var(--mid-grey);
+  --button-color: var(--near-white);
+  --button-bg-color: var(--blue);
+  --button-hover-color: var(--dark-blue);
+  --button-disabled-color: var(--light-blue);
 }
 
 a {
@@ -77,6 +87,53 @@ a {
   margin-left: 10px;
 }
 
+.rr-new-label {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.rr-input {
+  color: var(--input-color);
+  border-style: solid;
+  border-width: 1px;
+  padding: .25rem;
+}
+
+.rr-action-button {
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+  border-radius: .125rem;
+  padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.rr-action-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.rr-action-button[disabled] {
+  background-color: var(--button-disabled-color);
+}
+
+.rr-cancel-icon {
+  align-self: center;
+  margin-left: .25rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.rr-inline-form {
+  display: flex;
+}
+
+.rr-inline-form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 60em) and (max-width: 100em) {
   .rr-container {
     width: 80%;
@@ -95,9 +152,20 @@ a {
   border-bottom: 1px solid;
 }
 
-.rr-page-header>.rr-app-title {
+.rr-header-link>.rr-app-title {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.rr-panel {
+  padding: 1rem;
+  border: .125rem solid;
+  border-radius: .125rem;
+}
+
+.rr-textarea {
+  width: 100%;
+  padding: .5rem;
 }
 
 .rr-app-title>.rr-subtitle {
@@ -106,4 +174,19 @@ a {
 
 .list>li {
   margin-bottom: 10px;
+}
+
+.rating-star {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+#ember-testing-container {
+  font-family: 'avenir next', avenir, sans-serif;
+  color: var(--near-white);
+  background-color: var(--mid-grey) !important;
 }

@@ -1,0 +1,17 @@
+<section class="rr-panel b--solid br1 bw1">
+  <button
+    type="button"
+    class="rr-action-button fr"
+    {{on "click" (if this.isEditing this.save this.edit)}}
+  >
+    {{if this.isEditing "Save" "Edit"}}
+  </button>
+  <h3>
+    Description
+  </h3>
+  {{#if this.isEditing}}
+    <Textarea class="rr-textarea" @value={{this.model.description}} />
+  {{else}}
+    <p class="1h-copy">{{this.model.description}}</p>
+  {{/if}}
+</section>

@@ -1,0 +1,13 @@
+{{#each this.stars as |star|}}
+  <button
+    class="rating-star"
+    data-test-rr={{concat "star-rating-" star.rating}}
+    {{on "click" (fn this.setRating star.rating)}}
+  >
+    {{#if star.isFull}}
+      {{fa-icon "star"}}
+    {{else}}
+      {{fa-icon "star-o"}}
+    {{/if}}
+  </button>
+{{/each}}
