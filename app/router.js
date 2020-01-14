@@ -50,6 +50,7 @@ Router.map(function() {
 
   this.route('sign-up');
   this.route('login');
+  this.route('logout');
 });
 
 export default Router;
