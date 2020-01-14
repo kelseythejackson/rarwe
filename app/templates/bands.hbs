@@ -3,12 +3,12 @@
     {{#each this.model as |band|}}
       <li class="rr-list-item" data-test-rr="band-list-item">
         <LinkTo
-          @route="bands.band"
+          @route="bands.band.index"
           @model={{band.id}}
           class="rr-band-link"
           data-test-rr="band-link"
         >
-          {{band.name}}
+          {{capitalize band.name}}
           <span class="rr-pointer">
             {{fa-icon "angle-right"}}
           </span>

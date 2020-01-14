@@ -6,11 +6,13 @@
   --light-blue: #96ccff;
   --mid-grey: #555;
   --near-white: #f4f4f4;
+  --light-red: #ff725c;
   --input-color: var(--mid-grey);
   --button-color: var(--near-white);
   --button-bg-color: var(--blue);
   --button-hover-color: var(--dark-blue);
   --button-disabled-color: var(--light-blue);
+  --error-color: var(--light-red);
 }
 
 a {
@@ -134,19 +136,12 @@ a {
   justify-content: space-between;
 }
 
-@media screen and (min-width: 60em) and (max-width: 100em) {
-  .rr-container {
-    width: 80%;
-  }
-}
 
-@media screen and (min-width: 100em) {
-  .rr-container {
-    width: 50%;
-  }
-}
 
 .rr-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid;
@@ -161,6 +156,23 @@ a {
   padding: 1rem;
   border: .125rem solid;
   border-radius: .125rem;
+}
+
+.rr-user-panel {
+  margin-left: auto;
+}
+
+.rr-signin-button {
+  background-color: inherit;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.rr-form-container {
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rr-textarea {
@@ -189,4 +201,101 @@ a {
   font-family: 'avenir next', avenir, sans-serif;
   color: var(--near-white);
   background-color: var(--mid-grey) !important;
+}
+
+.rr-controls-panel {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 0;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.rr-search-panel {
+  margin-left: auto;
+}
+
+.rr-sort-button {
+  background-color: var(--mid-grey);
+  color: var(--near-white);
+  border: 0;
+  padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  cursor: pointer;
+}
+
+.rr-search-icon {
+  display: inline-block;
+  color: var(--mid-grey);
+  background-color: white;
+  padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-left: -5px;
+  border-width: 0;
+}
+
+.rr-loading-pane {
+  margin: 25px auto;
+}
+
+.rr-loading-message {
+  text-align: center;
+}
+
+.rr-spinner {
+  background: url('/images/spinner.svg') no-repeat;
+  height: 31px;
+  width: 31px;
+  margin: 0 auto;
+}
+
+.rr-error-pane {
+  margin: 25px auto;
+}
+
+.rr-error-message {
+  text-align: center;
+  color: var(--error-color);
+}
+
+.rr-form-row-inline {
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rr-button-panel {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.rr-form-footer>.rr-cta {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 60em) and (max-width: 100em) {
+  .rr-container {
+    width: 80%;
+  }
+
+  .rr-form-container {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  .rr-container {
+    width: 50%;
+  }
+
+  .rr-form-container {
+    width: 50%;
+  }
 }
