@@ -295,6 +295,21 @@ a {
   color: var(--error-color);
 }
 
+.rr-sort-panel {
+  align-self: center;
+}
+
+.rr-select {
+  height: 30px;
+  line-height: 30px;
+}
+
+#ember-testing {
+  font-family: 'avenir next', avenir, sans-serif;
+  color: var(--near-white);
+  background-color: var(--mid-grey) !important;
+}
+
 @media screen and (min-width: 60em) and (max-width: 100em) {
   .rr-container {
     width: 80%;
