@@ -4,6 +4,11 @@
   </h3>
   <form {{on "submit" this.signIn}}>
     <div class="rr-form-row-inline">
+      {{#if this.showErrors.email}}
+        <div class="rr-form-field-error" data-test-rr="email-error">
+          {{v-get this "email" "message"}}
+        </div>
+      {{/if}}
       <label for="email">
         Email
       </label>
@@ -12,9 +17,15 @@
         @value={{this.email}}
         class="rr-input ml-auto"
         id="email"
+        {{on "blur" (fn this.setShowErrors "email")}}
       />
     </div>
     <div class="rr-form-row-inline">
+      {{#if this.showErrors.password}}
+        <div class="rr-form-field-error" data-test-rr="password-error">
+          {{v-get this "password" "message"}}
+        </div>
+      {{/if}}
       <label for="password">
         Password
       </label>
@@ -23,6 +34,7 @@
         @value={{this.password}}
         class="rr-input ml-auto"
         id="password"
+        {{on "blur" (fn this.setShowErrors "password")}}
       />
     </div>
     <div class="rr-form-footer">
