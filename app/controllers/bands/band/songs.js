@@ -62,5 +62,9 @@ export default Controller.extend({
   updateRating: action(function(song, rating) {
     song.set('rating', song.rating === rating ? 0 : rating)
     song.save()
+  }),
+
+  updateSortBy: action(function(sortBy) {
+    this.set('sortBy', sortBy.target.value)
   })
 });

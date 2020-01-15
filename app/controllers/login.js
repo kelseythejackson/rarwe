@@ -27,7 +27,7 @@ export default Controller.extend(Validations, {
       let { email, password } = this
       await this.session.authenticate('authenticator:credentials', email, password)
       await this.router.transitionTo('bands')
-    } catch (error) {
+    } catch (response) {
       let errorMessage = extractServerError(response.errors)
       this.baseErrors.pushObject(errorMessage)
     }
