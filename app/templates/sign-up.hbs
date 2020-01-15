@@ -3,26 +3,45 @@
     Sign up to R&R
   </h3>
   <form {{on "submit" this.signUp}}>
+    {{#each this.baseErrors as |error|}}
+      <div class="rr-error-message mb2" data-test-rr="error-messsage">
+        {{error}}
+      </div>
+    {{/each}}
     <div class="rr-form-row-inline">
+      {{#if this.showErrors.email}}
+        <div class="rr-form-field-error" data-test-rr="email-error">
+          {{v-get model "email" "message"}}
+        </div>
+      {{/if}}
       <label for="email">
         Email
       </label>
       <Input
         @type="email"
-        @value={{this.email}}
+        @value={{this.model.email}}
         class="rr-input ml-auto"
         id="email"
+        {{on "blur" (fn this.setShowErrors "email")}}
+        {{on "input" this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-row-inline">
+      {{#if this.showErrors.password}}
+        <div class="rr-form-field-error" data-test-rr="password-error">
+          {{v-get model "password" "message"}}
+        </div>
+      {{/if}}
       <label for="password">
         Password
       </label>
       <Input
         @type="password"
-        @value={{this.password}}
+        @value={{this.model.password}}
         class="rr-input ml-auto"
         id="password"
+        {{on "blur" (fn this.setShowErrors "password")}}
+        {{on "input" this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-footer">
@@ -31,6 +50,7 @@
           type="submit"
           class="rr-action-button"
           data-test-rr="sign-up-button"
+          disabled={{v-get this.model "isInvalid"}}
         >
           Sign up
         </button>
