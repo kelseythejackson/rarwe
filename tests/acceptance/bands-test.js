@@ -3,6 +3,7 @@ import { visit, click, fillIn, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage  } from 'ember-cli-mirage/test-support'
 import { LoginAs, createBand } from 'rarwe/tests/helpers/custom-helpers'
+import { percySnapshot } from 'ember-percy/snapshot'
 
 module('Acceptance | Bands', function(hooks) {
   setupApplicationTest(hooks);
@@ -14,6 +15,7 @@ module('Acceptance | Bands', function(hooks) {
     await LoginAs('dave@tcv.com')
     await visit('/');
 
+    percySnapshot('List of bands')
     assert.dom('[data-test-rr=band-link]').exists({ count: 2 }, 'All band links are rendered');
     assert.dom('[data-test-rr=band-list-item]:first-child').hasText('Radiohead', 'The first band link contains the band name')
     assert.dom('[data-test-rr=band-list-item]:last-child').hasText('Long Distance Calling', 'The other band link contains the band name')
