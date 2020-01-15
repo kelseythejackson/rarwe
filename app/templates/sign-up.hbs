@@ -3,6 +3,11 @@
     Sign up to R&R
   </h3>
   <form {{on "submit" this.signUp}}>
+    {{#each this.baseErrors as |error|}}
+      <div class="rr-error-message mb2" data-test-rr="error-messsage">
+        {{error}}
+      </div>
+    {{/each}}
     <div class="rr-form-row-inline">
       {{#if this.showErrors.email}}
         <div class="rr-form-field-error" data-test-rr="email-error">
@@ -18,6 +23,7 @@
         class="rr-input ml-auto"
         id="email"
         {{on "blur" (fn this.setShowErrors "email")}}
+        {{on "input" this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-row-inline">
@@ -35,6 +41,7 @@
         class="rr-input ml-auto"
         id="password"
         {{on "blur" (fn this.setShowErrors "password")}}
+        {{on "input" this.resetBaseErrors}}
       />
     </div>
     <div class="rr-form-footer">
