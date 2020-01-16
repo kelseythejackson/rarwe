@@ -3,18 +3,34 @@
     <select
       class="rr-select"
       data-test-rr="sort-selector"
-      {{on "change" this.updateSortBy}}
+      {{on "change" this.updateSortBy}}s
     >
-      <option value="ratingDesc" data-test-rr="sort-by-rating-desc" selected={{eq this.sortBy "ratingDesc"}}>
+      <option
+        value="-rating,title"
+        data-test-rr="sort-by-rating-desc"
+        selected={{eq this.sortBy "-rating,title"}}
+      >
         By rating, descending
       </option>
-      <option value="ratingAsc" data-test-rr="sort-by-rating-asc" selected={{eq this.sortBy "ratingAsc"}}>
+      <option
+        value="rating,title"
+        data-test-rr="sort-by-rating-asc"
+        selected={{eq this.sortBy "rating,title"}}
+      >
         By rating, ascending
       </option>
-      <option value="titleDesc" data-test-rr="sort-by-title-desc" selected={{eq this.sortBy  "titleDesc"}}>
+      <option
+        value="-title"
+        data-test-rr="sort-by-title-desc"
+        selected={{eq this.sortBy "-title"}}
+      >
         By title, descending
       </option>
-      <option value="titleAsc" data-test-rr="sort-by-title-asc" selected={{eq this.sortBy "titleAsc"}}>
+      <option
+        value="title"
+        data-test-rr="sort-by-title-asc"
+        selected={{eq this.sortBy "title"}}
+      >
         By title, ascending
       </option>
     </select>
@@ -25,14 +41,19 @@
       class="rr-input"
       @value={{this.searchTerm}}
       data-test-rr="search-box"
+      {{on "blur" this.updateSearchTerm}}
     />
-    <div class="rr-search-icon">
+    <button
+      type="button"
+      class="rr-search-button"
+      {{on "click" this.updateSearchTerm}}
+    >
       {{fa-icon "search"}}
-    </div>
+    </button>
   </div>
 </div>
 <ul class="rr-list">
-  {{#each this.sortedSongs as |song|}}
+  {{#each this.model as |song|}}
     <li class="rr-list-item" data-test-rr="song-list-item">
       {{capitalize song.title}}
       <StarRating
@@ -44,7 +65,7 @@
   {{else}}
     <li class="tc">
       No
-      {{capitalize this.model.name}}
+      {{capitalize this.band.name}}
       songs yet, why don't you
       <a href="#" onclick {{action "addSong"}}>
         create one?
@@ -88,5 +109,25 @@
         </span>
       </label>
     </div>
+  {{/if}}
+</div>
+<div class="rr-pagination-links">
+  {{#if this.hasPrevPage}}
+    {{#link-to
+      (query-params pageNumber=(dec this.pageNumber))
+      class="rr-pagination-prev"
+      data-test-rr="pagination-prev"
+    }}
+      {{fa-icon "angle-left"}}Prev
+    {{/link-to}}
+  {{/if}}
+  {{#if this.hasNextPage}}
+    {{#link-to
+      (query-params pageNumber=(inc this.pageNumber))
+      class="rr-pagination-next"
+      data-test-rr="pagination-next"
+    }}
+      Next{{fa-icon "angle-right"}}
+    {{/link-to}}
   {{/if}}
 </div>
