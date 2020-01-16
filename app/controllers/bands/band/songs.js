@@ -1,44 +1,24 @@
 import Controller from '@ember/controller';
 import { action, computed } from '@ember/object';
-import { empty, sort } from '@ember/object/computed';
+import { empty, gt } from '@ember/object/computed';
 import { capitalize } from 'rarwe/helpers/capitalize'
+import { inject as service } from '@ember/service'
 
 export default Controller.extend({
-  queryParams: {
-    sortBy: 's',
-    searchTerm: 'q'
-  },
+  router: service(),
+  pageNumber: 1,
   isAddingSong: false,
   newSongTitle: '',
-  searchTerm: '',
-
-  matchingSongs: computed('model.songs.@each.title', 'searchTerm', function() {
-    let searchTerm = this.searchTerm.toLowerCase();
-    return this.model.get('songs').filter((song) => {
-      return song.title.toLowerCase().includes(searchTerm);
-    }) 
-  }),
+  searchTermQP: '',
 
   isAddButtonDisabled: empty('newSongTitle'),
 
-  sortBy: 'ratingDesc',
+  sortBy: '-rating,title',
 
-  sortProperties: computed('sortBy', function() {
-    let options = {
-      ratingDesc: ['rating:desc', 'title:asc'],
-      ratingAsc: ['rating:asc', 'title:asc'],
-      titleDesc: ['title:desc'],
-      titleAsc: ['title:asc']
-    };
-    return options[this.sortBy]
-  }),
-
-  newSongPlaceholder: computed('model.name', function() {
-    let bandName = this.model.name;
+  newSongPlaceholder: computed('band.name', function() {
+    let bandName = this.band.name;
     return `New ${capitalize(bandName)} song`
   }),
-
-  sortedSongs: sort('matchingSongs', 'sortProperties'),
 
   addSong: action(function() {
     this.set('isAddingSong', true)
@@ -52,10 +32,12 @@ export default Controller.extend({
     e.preventDefault()
     let newSong = this.store.createRecord('song', {
       title: this.get('newSongTitle'),
-      band: this.model
+      band: this.band
     });
     await newSong.save()
+    this.model.update()
     this.set('newSongTitle', '')
+    this.flashMessages.success('The new song has been created')
 
   }),
 
@@ -64,7 +46,26 @@ export default Controller.extend({
     song.save()
   }),
 
-  updateSortBy: action(function(sortBy) {
-    this.set('sortBy', sortBy.target.value)
+  updateSortBy: action(function(e) {
+    this.router.transitionTo({
+      queryParams: {
+        s: e.target.value,
+        page: 1
+      }
+    })
+  }),
+
+  updateSearchTerm: action(function() {
+    this.router.transitionTo({
+      queryParams: {
+        q: this.searchTerm,
+        page: 1
+      }
+    })
+  }),
+
+  hasPrevPage: gt('pageNumber', 1),
+  hasNextPage: computed('pageNumber', 'model.meta.page-count', function() {
+    return this.pageNumber < this.model.meta['page-count']
   })
 });
