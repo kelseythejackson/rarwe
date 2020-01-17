@@ -1,0 +1,14 @@
+<input
+  type="text"
+  class="rr-input"
+  value={{this.value}}
+  data-test-rr="search-box"
+  {{on "input" (perform @onChange)}}
+>
+<button
+  type="button"
+  class="rr-search-button"
+  {{on "click" (perform @onChange null)}}
+>
+  {{fa-icon "search"}}
+</button>

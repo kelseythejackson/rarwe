@@ -4566,7 +4566,7 @@ ember-cli@~3.12.0:
     watch-detector "^0.1.0"
     yam "^1.0.0"
 
-ember-compatibility-helpers@^1.0.2, ember-compatibility-helpers@^1.1.1:
+ember-compatibility-helpers@^1.0.2, ember-compatibility-helpers@^1.1.1, ember-compatibility-helpers@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.2.0.tgz#feee16c5e9ef1b1f1e53903b241740ad4b01097e"
   integrity sha512-pUW4MzJdcaQtwGsErYmitFRs0rlCYBAnunVzlFFUBr4xhjlCjgHJo0b53gFnhTgenNM3d3/NqLarzRhDTjXRTg==
@@ -4574,6 +4574,15 @@ ember-compatibility-helpers@^1.0.2, ember-compatibility-helpers@^1.1.1:
     babel-plugin-debug-macros "^0.2.0"
     ember-cli-version-checker "^2.1.1"
     semver "^5.4.1"
+
+ember-concurrency@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.1.5.tgz#d07421617d14a038a2d29c994335866061a8107c"
+  integrity sha512-2YgvPJKULUmEDLxlXiWwmOXKCd6FSp7V/L9t77y07f99+CU5cejCsUUjkYNTqlgb8gjifcuOjBq1Cyim3hhuPg==
+  dependencies:
+    ember-cli-babel "^7.7.3"
+    ember-compatibility-helpers "^1.2.0"
+    ember-maybe-import-regenerator "^0.1.6"
 
 "ember-cookies@^0.3.0 || ^0.4.0":
   version "0.4.0"
