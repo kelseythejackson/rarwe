@@ -3,13 +3,13 @@ import { action, computed } from '@ember/object';
 import { empty, gt } from '@ember/object/computed';
 import { capitalize } from 'rarwe/helpers/capitalize'
 import { inject as service } from '@ember/service'
+import { task, timeout } from 'ember-concurrency'
 
 export default Controller.extend({
   router: service(),
   pageNumber: 1,
   isAddingSong: false,
   newSongTitle: '',
-  searchTermQP: '',
 
   isAddButtonDisabled: empty('newSongTitle'),
 
@@ -55,14 +55,18 @@ export default Controller.extend({
     })
   }),
 
-  updateSearchTerm: action(function() {
-    this.router.transitionTo({
+  updateSearchTerm: task(function * (e) {
+    if (e) {
+      yield timeout(250)
+      this.set('searchTerm', e.target.value)
+    }
+    yield this.router.transitionTo({
       queryParams: {
         q: this.searchTerm,
         page: 1
       }
     })
-  }),
+  }).restartable(),
 
   hasPrevPage: gt('pageNumber', 1),
   hasNextPage: computed('pageNumber', 'model.meta.page-count', function() {

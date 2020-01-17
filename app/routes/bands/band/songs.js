@@ -6,7 +6,7 @@ export default Route.extend({
       as: 's',
       refreshModel: true
     },
-    searchTermQP: {
+    searchTerm: {
       as: 'q',
       refreshModel: true
     },
@@ -16,12 +16,12 @@ export default Route.extend({
     }
   },
   model(params) {
-    let { pageNumber, sortBy, searchTermQP } = params
+    let { pageNumber, sortBy, searchTerm } = params
     let band = this.modelFor('bands.band')
     return this.store.query('song', {
       filter: {
         'band_id': band.id,
-        title: searchTermQP
+        title: searchTerm
       },
       'page[number]': pageNumber,
       sort: sortBy
@@ -30,7 +30,6 @@ export default Route.extend({
   setupController(controller) {
     this._super(...arguments)
     controller.set('band', this.modelFor('bands.band'))
-    controller.set('searchTerm', controller.searchTermQP)
   },
   resetController(controller) {
     controller.setProperties({
