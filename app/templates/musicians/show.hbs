@@ -2,21 +2,35 @@
   <div class="flex">
     <div class="w-25">
       <div
-        class="h4 w4 bg0mid-gray near-white f1 tc dtc v-mid"
+        class="h4 w4 bg-mid-gray near-white f1 tc dtc v-mid"
         data-test-rr="musician-initials"
       >
         {{this.model.initials}}
       </div>
     </div>
-    <div class="w-50 flex flex-column m14 items-start">
-      <h3 class="ma0" data-test-rr="musician-name">
-        {{this.model.name}}
-      </h3>
+    <div class="w-75 flex flex-column m14 items-start">
+      <div class="flex w-100 justify-between">
+        <h3 class="ma0" data-test-rr="musician-name">
+          {{model.name}}
+        </h3>
+        <LinkTo
+          @route="musicians.edit"
+          @model={{this.model.id}}
+          class="underline"
+          data-test-rr="musician-edit-link"
+        >
+          Edit
+        </LinkTo>
+      </div>
       <div class="mt3" data-test-rr="musician-age">
         <span class="b mr2">
           Born:
         </span>
-        1969 (age 49 years old)
+        {{#with this.model.yearOfBirth as |yob|}}
+          {{yob}}(age{{this.model.age}}years)
+        {{else}}
+          Not known
+        {{/with}}
       </div>
       <h4 class="ma0 mt3 mb3">
         Bands

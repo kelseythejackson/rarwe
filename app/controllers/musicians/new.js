@@ -6,6 +6,6 @@ export default Controller.extend({
   router: service(),
 
   gotoMusicianDetails: task(function* () {
-    yield this.router.transitionTo('musician.show', this.model.id)
+    yield this.router.transitionTo('musicians.show', this.model.id)
   })
 });

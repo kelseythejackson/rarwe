@@ -5,5 +5,9 @@ export default Route.extend({
     return this.store.findRecord('musician', id, {
       include: 'bands'
     })
-  }
+  },
+  setupController(controller, model) {
+    this._super(...arguments);
+    controller.set('selectedBands', model.get('bands'));
+    }
 });

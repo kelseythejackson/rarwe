@@ -55,6 +55,7 @@ Router.map(function() {
   this.route('musicians', function() {
     this.route('new');
     this.route('show', { path: ':id' });
+    this.route('edit', { path: ':id/edit'});
   });
 });
 
