@@ -1,14 +1,14 @@
 <input
   type="text"
   class="rr-input"
-  value={{this.value}}
+  value={{@value}}
   data-test-rr="search-box"
-  {{on "input" (perform @onChange)}}
+  {{on "input" (perform @onChange value="target.value")}}
 >
 <button
   type="button"
   class="rr-search-button"
-  {{on "click" (perform @onChange null)}}
+  {{on "click" (perform @onChange @value)}}
 >
   {{fa-icon "search"}}
 </button>

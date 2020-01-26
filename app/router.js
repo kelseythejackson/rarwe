@@ -51,6 +51,12 @@ Router.map(function() {
   this.route('sign-up');
   this.route('login');
   this.route('logout');
+
+  this.route('musicians', function() {
+    this.route('new');
+    this.route('show', { path: ':id' });
+    this.route('edit', { path: ':id/edit'});
+  });
 });
 
 export default Router;

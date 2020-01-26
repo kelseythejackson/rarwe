@@ -1,0 +1,10 @@
+<div class="rr-form-container">
+  <h3 data-test-rr="form-header">
+    New musician
+  </h3>
+  <MusicianForm
+    @musician={{model}}
+    @afterSave={{this.gotoMusicianDetails}}
+    @selectedBands={{this.selectedBands}}
+  />
+</div>

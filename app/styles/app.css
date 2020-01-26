@@ -337,6 +337,26 @@ a {
   background-color: var(--mid-grey) !important;
 }
 
+.rr-secondary-button {
+  color: var(--mid-grey);
+  background-color: var(--near-white);
+  cursor: pointer;
+}
+
+.ember-power-select-option {
+  color: var(--input-color);
+}
+
+.ember-power-select-selected-item {
+  color: var(--input-color);
+  border: 1px solid gray;
+  border-radius: 4px;
+  color: #333333;
+  background-color: #e4e4e4;
+  padding: 0 4px;
+  margin: 2px 0 2px 3px;
+}
+
 @media screen and (min-width: 60em) and (max-width: 100em) {
   .rr-container {
     width: 80%;
