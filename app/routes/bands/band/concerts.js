@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
 import { inject as service } from '@ember/service';
-import ENV from 'rarwe/config/enviroment';
+import ENV from 'rarwe/config/environment';
 
 export default Route.extend({
   session: service(),
