@@ -58,7 +58,8 @@
     "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4",
-    "tachyons": "4.9.1"
+    "tachyons": "4.9.1",
+    "ember-cli-geo": "https://github.com/balinterdi/ember-cli-geo.git#upgrade-babel"
   },
   "engines": {
     "node": "8.* || >= 10.*"
