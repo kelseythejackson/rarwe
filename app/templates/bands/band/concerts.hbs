@@ -1,6 +1,14 @@
 <h3>
   Concerts
 </h3>
+<div class="flex w-100 justify-between mb3">
+  <h3 class="ma0">
+    Concerts
+  </h3>
+  <button class="rr-link-button" {{on "click" (perform this.filterConcerts)}}>
+    Only show nearby
+  </button>
+</div>
 {{#if this.model.length}}
   <table class="collapse ba br2 pv2 ph3 w-100">
     <thead>

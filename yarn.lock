@@ -4198,7 +4198,7 @@ ember-ast-helpers@0.3.5:
     "@glimmer/compiler" "^0.27.0"
     "@glimmer/syntax" "^0.27.0"
 
-ember-auto-import@^1.2.19:
+ember-auto-import@^1.2.19, ember-auto-import@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.5.3.tgz#b32936f874d1ed7057ad2ed3f6116357820be44b"
   integrity sha512-7JfdunM1BmLy/lyUXu7uEoi0Gi4+dxkGM23FgIEyW5g7z4MidhP53Fc61t49oPSnq7+J4lLpbH1f6C+mDMgb4A==
@@ -5983,6 +5983,11 @@ gauge@~2.7.3:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
+
+geolib@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/geolib/-/geolib-3.2.1.tgz#1d7c6e7106eddc10445ba2038550aab63d6e4fa4"
+  integrity sha512-O9nD8iSD4VimupKak8bKySLkkWI5VWetxIXsU7jmJRXxBFRR9LxSXGfTomtcHJLSRiznx+YHXHTOIVq4qgQmPw==
 
 get-caller-file@^2.0.5:
   version "2.0.5"
