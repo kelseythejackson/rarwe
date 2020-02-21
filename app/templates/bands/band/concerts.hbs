@@ -9,13 +9,19 @@
       Nearby concerts
     {{/if}}
   </h3>
-  <button class="rr-link-button" {{on "click" (perform this.filterConcerts)}}>
-    {{#if this.showingAll}}
-      Only show nearby
-    {{else}}
-      Show all
-    {{/if}}
-  </button>
+  {{#if this.filterConcerts.isRunning}}
+    <div>
+      Getting location...
+    </div>
+  {{else}}
+    <button class="rr-link-button" {{on "click" (perform this.filterConcerts)}}>
+      {{#if this.showingAll}}
+        Only show nearby
+      {{else}}
+        Show all
+      {{/if}}
+    </button>
+  {{/if}}
 </div>
 {{#if this.concerts.length}}
   <table class="collapse ba br2 pv2 ph3 w-100">
@@ -60,7 +66,7 @@
         src="/images/powered-by-songkick-white.svg"
         alt="Powered by
 Songkick"
-      >
+      />
     </a>
   </div>
 {{else}}
