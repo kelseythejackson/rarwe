@@ -25,7 +25,7 @@ export default Controller.extend({
     let [userLat, userLng] = this.userLocation
     // return the filtered model
     return this.model.filter((concert) => {
-      let { lat, lng } = concert.getLocation
+      let { lat, lng } = concert.location
       let distanceToConcert = geolib.getDistance({ lat: userLat, lng: userLng }, {lat, lng})
       return distanceToConcert < (this.selectedDistance * 1000)
     })
