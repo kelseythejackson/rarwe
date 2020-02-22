@@ -18,7 +18,7 @@
       {{#if this.showingNearby}}
         within
         <div class="m12 w4">
-          <PoweSelect
+          <PowerSelect
             class="m12"
             @options={{this.nearbyDistances}}
             @selected={{this.selectedDistance}}
@@ -28,7 +28,7 @@
             @onChange={{this.updateSelectedDistance}} as |distance|
           >
             {{distance}}
-          </PoweSelect>
+          </PowerSelect>
         </div>
         <div class="m12 mr2">
           kms or
@@ -90,7 +90,7 @@
         src="/images/powered-by-songkick-white.svg"
         alt="Powered by
 Songkick"
-      />
+      >
     </a>
   </div>
 {{else}}
