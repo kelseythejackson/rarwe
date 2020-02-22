@@ -1,7 +1,7 @@
 <h3>
   Concerts
 </h3>
-<div class="flex w-100 justify-between mb3">
+<div class="flex w-100 justify-start mb3">
   <h3 class="ma0">
     {{#if this.showingAll}}
       Concerts
@@ -10,17 +10,41 @@
     {{/if}}
   </h3>
   {{#if this.filterConcerts.isRunning}}
-    <div>
+    <div class="ml-auto">
       Getting location...
     </div>
   {{else}}
-    <button class="rr-link-button" {{on "click" (perform this.filterConcerts)}}>
-      {{#if this.showingAll}}
-        Only show nearby
-      {{else}}
-        Show all
+    <div class="ml-auto flex items-center">
+      {{#if this.showingNearby}}
+        within
+        <div class="m12 w4">
+          <PoweSelect
+            class="m12"
+            @options={{this.nearbyDistances}}
+            @selected={{this.selectedDistance}}
+            @placeholder="..."
+            WsearchEnabled={{false}}
+            data-test-rr="distance-selector"
+            @onChange={{this.updateSelectedDistance}} as |distance|
+          >
+            {{distance}}
+          </PoweSelect>
+        </div>
+        <div class="m12 mr2">
+          kms or
+        </div>
       {{/if}}
-    </button>
+      <button
+        class="rr-link-button"
+        {{on "click" (perform this.filterConcerts)}}
+      >
+        {{#if this.showingAll}}
+          Only show nearby
+        {{else}}
+          Show all
+        {{/if}}
+      </button>
+    </div>
   {{/if}}
 </div>
 {{#if this.concerts.length}}

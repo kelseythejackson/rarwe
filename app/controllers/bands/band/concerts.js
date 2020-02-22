@@ -3,21 +3,33 @@ import { inject as service } from '@ember/service';
 import { readOnly, equal } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
 import geolib from 'geolib'
-import { computed } from '@ember/object'
-
-const nearbyDistance = 500 * 1000;
+import { computed, action } from '@ember/object'
 
 export default Controller.extend({
+  init() {
+    this._super(...arguments)
+    this.set('nearbyDistances', [200, 500, 1000, 2000])
+  },
+  selectedDistance: 500,
   showConcerts: 'all',
   geolocation: service(),
   userLocation: readOnly('geolocation.currentLocation'),
   showingAll: equal('showConcerts', 'all'),
   showingNearby: equal('showConcerts', 'nearby'),
-  concerts: computed('showingAll', 'model.[]', function() {
+  concerts: computed('showingAll', 'model.[]', 'userLocation', 'selectedDistance', function() {
+    // If showing all is true, return the whole model
     if (this.showingAll) {
       return this.model;
     }
-    return this.model.slice(0, -1)
+    // grab the users current location (lattitude & longitude)
+    let [userLat, userLng] = this.userLocation
+    // return the filtered model
+    return this.model.filter((concert) => {
+      let { lat, lng } = concert.getLocation
+      let distanceToConcert = geolib.getDistance({ lat: userLat, lng: userLng }, {lat, lng})
+      return distanceToConcert < (this.selectedDistance * 1000)
+    })
+    
   }),
 
   filterConcerts: task(function * () {
@@ -25,5 +37,9 @@ export default Controller.extend({
       yield this.get('geolocation').getLocation();
     }
     this.set('showConcerts', this.showingAll ? 'nearby': 'all')
+  }),
+
+  updateSelectedDistance: action(function(distance) {
+    this.set('selectedDistance', distance)
   })
 });
