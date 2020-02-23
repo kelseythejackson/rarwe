@@ -59,6 +59,7 @@ Router.map(function() {
     this.route('show', { path: ':id' });
     this.route('edit', { path: ':id/edit'});
   });
+  this.route('settings');
 });
 
 export default Router;
