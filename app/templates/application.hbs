@@ -13,9 +13,11 @@
     </LinkTo>
     {{#if this.session.isAuthenticated}}
       <div class="rr-user-panel">
-        <span data-test-rr="user-email">
-          {{this.session.data.authenticated.userEmail}}
-        </span>
+        <LinkTo @route="settings">
+          <span data-test-rr="user-email">
+            {{this.session.data.authenticated.userEmail}}
+          </span>
+        </LinkTo>
         |
         <span>
           <LinkTo @route="logout" data-test-rr="logout">
