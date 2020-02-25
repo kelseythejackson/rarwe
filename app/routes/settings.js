@@ -2,8 +2,9 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service'
 import fetch from 'fetch'
 import ENV from 'rarwe/config/environment'
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Route.extend({
+export default Route.extend(AuthenticatedRouteMixin, {
   session: service(),
 
   async module() {

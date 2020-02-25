@@ -1,0 +1,51 @@
+<form {{on "submit" (perform this.saveUser)}}>
+  <div class="rr-form-row mb3">
+    <div class="mb2">
+      <label for="date-format">
+        Preferred date format
+      </label>
+    </div>
+    <div class="mb2">
+      <PowerSelect
+        @options={{this.dateFormats}}
+        @selected={{this.selectedFormat}}
+        @searchEnabled={{false}}
+        @onChange={{this.updateSelectedFormat}} as |format|
+      >
+        {{format.example}}
+      </PowerSelect>
+    </div>
+  </div>
+  <div class="rr-form-row">
+    <div class="mb2">
+      <label for="units">
+        Units
+      </label>
+    </div>
+    <div class="mb2">
+      <PowerSelect
+        @options={{this.units}}
+        @selected={{@user.unitPreference}}
+        @searchEnabled={{false}}
+        @onChange={{this.updateUnitPreference}} as |unit|
+      >
+        {{capitalize unit}}
+      </PowerSelect>
+    </div>
+  </div>
+  <div class="rr-form-footer">
+    <div class="rr-button-panel">
+      <button
+        type="button"
+        class="rr-secondary-button mr3"
+        data-test-rr="cancel-button"
+        {{on "click" (perform this.discardChanges)}}
+      >
+        Cancel
+      </button>
+      <button type="submit" class="rr-action-button" data-test-rr="save-button">
+        Save
+      </button>
+    </div>
+  </div>
+</form>
