@@ -6,8 +6,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   currentUser: service(),
 
 
-  async model() {
-    await this.currentUser.load()
+  model() {
     return this.currentUser.user
   }
 });
