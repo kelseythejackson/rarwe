@@ -378,6 +378,19 @@ a {
   cursor: pointer;
 }
 
+.offline-ui.offline-ui-down {
+  color: var(--mid-grey);
+  background-color: var(--bright-yellow);
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.offline-ui.offline-ui-down:before {
+  content: 'You are offline.'
+}
+
 @media screen and (min-width: 60em) and (max-width: 100em) {
   .rr-container {
     width: 80%;
