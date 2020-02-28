@@ -4,6 +4,25 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    'asset-cache': {
+      include: [
+        'assets/**/*',
+        'images/**/*',
+        'fonts/**/*'
+      ]
+    },
+    'esw-cache-fallback': {
+      // RegExp patterns specifying which URLs to cache.
+      patterns: [
+      '/bands(.+)',
+      '/songs(.+)',
+      '/musicians(.+)',
+      '/users/me',
+      'http(s?)://auth-api.rockandrollwithemberjs.com/(.+)',
+      ],
+      // changing this version number will bust the cache
+      version: '1'
+      }
     // Add options here
   });
 

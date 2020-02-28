@@ -5,6 +5,7 @@ import { buildValidations } from 'ember-cp-validations'
 import emailFieldValidation from 'rarwe/validations/email-field'
 import passwordFieldValidation from 'rarwe/validations/password-field'
 import extractServerError from 'rarwe/utils/extract-server-error'
+import { or } from '@ember/object/computed'
 
 const Validations = buildValidations({
   email: emailFieldValidation,
@@ -20,6 +21,7 @@ export default Controller.extend(Validations, {
 
   router: service(),
   session: service(),
+  offline: service(),
 
   signIn: action(async function(e) {
     e.preventDefault()
@@ -41,5 +43,7 @@ export default Controller.extend(Validations, {
   
   resetBaseErrors: action(function() {
     this.set('baseErrors', [])
-  })
+  }),
+
+  isButtonDisabled: or('validations.isInvalid', 'signIn.isRunning', 'offline.isDown'),
 });

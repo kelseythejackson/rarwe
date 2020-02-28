@@ -60,6 +60,7 @@ Router.map(function() {
     this.route('edit', { path: ':id/edit'});
   });
   this.route('settings');
+  this.route('app-shell');
 });
 
 export default Router;

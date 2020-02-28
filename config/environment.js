@@ -26,6 +26,10 @@ module.exports = function(environment) {
     },
     moment: {
       outputFormat: 'YYYY-MM-DD'
+    },
+    exportApplicationGlobal: true,
+    emberOffline: {
+      themes: {}
     }
   };
 
