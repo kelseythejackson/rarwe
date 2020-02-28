@@ -1,5 +1,5 @@
 export function initialize(appInstance ) {
-  let session = appInstance.lookup('sevice:session')
+  let session = appInstance.lookup('service:session')
   let currentUser = appInstance.lookup('service:current-user')
   session.on('authenticationSucceeded', function() {
     currentUser.load()
