@@ -23,6 +23,9 @@ module.exports = function(environment) {
     },
     'ember-simple-auth': {
       routeIfAlreadyAuthenticated: 'bands'
+    },
+    moment: {
+      outputFormat: 'YYYY-MM-DD'
     }
   };
 

@@ -28,7 +28,7 @@
           </PowerSelect>
         </div>
         <span class="m12 mr2">
-          kms or 
+          {{if this.useMiles "miles" "kms"}} or
         </span>
       {{/if}}
       <button
@@ -64,7 +64,16 @@
       {{#each this.concerts as |concert|}}
         <tr class="striped--near-white" data-test-rr="concert-row">
           <td class="pv2 ph3">
-            {{concert.start.date}}
+            {{#let
+              concert.start.date
+              currentUser.user.dateFormat as |date format|
+            }}
+              {{#if format}}
+                {{moment-format date format}}
+              {{else}}
+                {{moment-format date}}
+              {{/if}}
+            {{/let}}
           </td>
           <td class="pv2 ph3">
             {{concert.location.city}}
@@ -87,7 +96,7 @@
         src="/images/powered-by-songkick-white.svg"
         alt="Powered by
 Songkick"
-      >
+      />
     </a>
   </div>
 {{else}}
