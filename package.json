@@ -46,7 +46,7 @@
     "ember-concurrency": "^1.1.5",
     "ember-cp-validations": "^4.0.0-beta.10",
     "ember-data": "~3.12.0",
-    "ember-export-application-global": "^2.0.0",
+    "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^7.0.0",
     "ember-font-awesome": "^4.0.0-rc.4",
     "ember-load-initializers": "^2.0.0",
