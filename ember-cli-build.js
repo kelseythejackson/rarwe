@@ -1,9 +1,13 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const env = process.env.EMBER_ENV;
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    'ember-service-worker': {
+      enabled: !['development', 'test'].includes(env),
+      },
     'asset-cache': {
       include: [
         'assets/**/*',
@@ -18,7 +22,7 @@ module.exports = function(defaults) {
       '/songs(.+)',
       '/musicians(.+)',
       '/users/me',
-      'http(s?)://auth-api.rockandrollwithemberjs.com/(.+)',
+      'https://auth-api.rockandrollwithemberjs.com/(.+)',
       ],
       // changing this version number will bust the cache
       version: '1'
