@@ -52,6 +52,7 @@
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^8.0.0",
+    "ember-offline": "https://github.com/balinterdi/ember-offline.git#allow-turning-off-styles",
     "ember-percy": "^1.6.0",
     "ember-power-select": "^3.0.6",
     "ember-qunit": "^4.4.1",
@@ -69,8 +70,7 @@
     "geolib": "^3.2.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4",
-    "tachyons": "4.9.1",
-    "ember-offline": "https://github.com/balinterdi/ember-offline.git#allow-turning-off-styles"
+    "tachyons": "4.9.1"
   },
   "engines": {
     "node": "8.* || >= 10.*"
