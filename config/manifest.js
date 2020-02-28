@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function ( /* environment, appConfig */ ) {
-  // See https://zonkyio.github.io/ember-web-app for a list of
+module.exports = function(/* environment, appConfig */) {
+  // See https://github.com/san650/ember-web-app#documentation for a list of
   // supported properties
 
   return {
@@ -12,7 +12,8 @@ module.exports = function ( /* environment, appConfig */ ) {
     display: "standalone",
     background_color: "#555",
     theme_color: "#fff",
-    icons: [{
+    icons: [
+      {
         src: "/images/icons/logo-192x192.png",
         sizes: "192x192",
         type: "image/png"
